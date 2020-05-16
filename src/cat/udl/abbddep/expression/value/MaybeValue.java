@@ -1,6 +1,8 @@
 package cat.udl.abbddep.expression.value;
 
-public abstract class MaybeValue {
+import cat.udl.abbddep.expression.Expression;
+
+public abstract class MaybeValue implements Expression {
 
     public abstract boolean hasValue();
 }

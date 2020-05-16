@@ -1,18 +1,24 @@
 package cat.udl.abbddep.expression.reference;
 
-public class Reference {
 
-    private final String address;
+import cat.udl.abbddep.cell.Cell;
+import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.expression.Expression;
+import cat.udl.abbddep.expression.value.MaybeValue;
 
-    public Reference(String address) throws NotValidReferenceAddressException {
-        checkAddress(address);
-        this.address = address;
+public class Reference implements Expression {
+
+
+    private final Cell cell;
+
+    public Reference(Cell cell) throws NotValidAddressException {
+        this.cell = cell;
     }
 
-    private void checkAddress(String address) throws NotValidReferenceAddressException {
-        if (!address.matches("[a-zA-Z]+[\\d]+"))
-                throw new NotValidReferenceAddressException();
+
+
+    @Override
+    public MaybeValue evaluate() {
+        return cell.evaluate();
     }
-
-
 }

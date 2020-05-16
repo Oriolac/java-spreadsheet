@@ -11,4 +11,9 @@ public class NoValue extends MaybeValue {
     public boolean hasValue() {
         return false;
     }
+
+    @Override
+    public MaybeValue evaluate() {
+        return this;
+    }
 }

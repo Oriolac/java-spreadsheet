@@ -1,4 +1,4 @@
-package cat.udl.abbddep;
+package cat.udl.abbddep.sheet;
 
 public class Sheet {
     private final int size;

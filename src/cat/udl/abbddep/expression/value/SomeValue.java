@@ -11,4 +11,9 @@ public class SomeValue extends MaybeValue {
     public int getValue() {
         return value;
     }
+
+    @Override
+    public MaybeValue evaluate() {
+        return this;
+    }
 }

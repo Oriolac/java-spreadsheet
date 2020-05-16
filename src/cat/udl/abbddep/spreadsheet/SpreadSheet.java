@@ -1,8 +1,7 @@
 package cat.udl.abbddep.spreadsheet;
 
 
-import cat.udl.abbddep.expression.Expression;
-import cat.udl.abbddep.Sheet;
+import cat.udl.abbddep.sheet.Sheet;
 
 public class SpreadSheet {
 
