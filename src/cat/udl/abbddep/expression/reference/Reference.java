@@ -1,4 +1,4 @@
-package cat.udl.abbddep.reference;
+package cat.udl.abbddep.expression.reference;
 
 public class Reference {
 
