@@ -12,18 +12,18 @@ public class Cell {
     private MaybeValue value = NoValue.INSTANCE;
 
     public Cell(String address) throws NotValidAddressException {
-        checkAddress(address);
         this.address = address;
+    }
+
+    public Cell(String address, Expression exp) throws NotValidAddressException {
+        this(address);
+        set(exp);
     }
 
     public void set(Expression exp) {
         this.exp = exp;
     }
 
-    private void checkAddress(String address) throws NotValidAddressException {
-        if (!address.matches("[a-zA-Z]+[\\d]+"))
-            throw new NotValidAddressException();
-    }
 
     public MaybeValue evaluate() {
         if (!value.hasValue())
