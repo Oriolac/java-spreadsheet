@@ -5,7 +5,7 @@ import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 
-public abstract class Operation implements Expression {
+public abstract class Operation implements Expression, OperationInt {
 
     protected final Expression e1;
     protected final Expression e2;
@@ -15,7 +15,6 @@ public abstract class Operation implements Expression {
         this.e2 = e2;
     }
 
-    public abstract int operate(int i1, int i2);
 
     @Override
     public MaybeValue evaluate() {
