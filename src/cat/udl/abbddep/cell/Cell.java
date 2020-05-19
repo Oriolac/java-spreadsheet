@@ -8,7 +8,6 @@ import cat.udl.abbddep.expression.value.NoValue;
 public class Cell {
 
     Expression exp;
-    String address;
     private MaybeValue value;
 
     public Cell(Expression expr) {

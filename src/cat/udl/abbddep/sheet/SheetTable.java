@@ -77,6 +77,8 @@ public class SheetTable implements Sheet {
         Address ad = new Address(ref);
         int row = ad.getRow();
         int col = ad.getColumn();
+        if (cells[row][col] == null)
+            cells[row][col] = new Cell();
         return cells[row][col];
     }
 

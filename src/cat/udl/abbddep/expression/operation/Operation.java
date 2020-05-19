@@ -7,8 +7,8 @@ import cat.udl.abbddep.expression.value.SomeValue;
 
 public abstract class Operation implements Expression, OperationInt {
 
-    protected final Expression e1;
-    protected final Expression e2;
+    private final Expression e1;
+    private final Expression e2;
 
     public Operation(Expression e1, Expression e2) {
         this.e1 = e1;
