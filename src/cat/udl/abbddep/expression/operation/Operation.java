@@ -15,7 +15,6 @@ public abstract class Operation implements Expression, OperationInt {
         this.e2 = e2;
     }
 
-
     @Override
     public MaybeValue evaluate() {
         MaybeValue mValue1 = e1.evaluate();
