@@ -6,9 +6,8 @@ import cat.udl.abbddep.expression.Expression;
 
 public interface Sheet {
 
-    public void putCell(String address, Expression expr);
+    public void putCell(String address, Expression expr) throws NotValidAddressException;
 
-    public Cell getCell(String ref);
+    public Cell getCell(String ref) throws NotValidAddressException;
 
-    public void checkAddress(String address) throws NotValidAddressException;
 }

@@ -9,15 +9,15 @@ public class Cell {
 
     Expression exp;
     String address;
-    private MaybeValue value = NoValue.INSTANCE;
+    private MaybeValue value;
 
-    public Cell(String address) throws NotValidAddressException {
-        this.address = address;
+    public Cell(Expression expr) {
+        this();
+        set(exp);
     }
 
-    public Cell(String address, Expression exp) throws NotValidAddressException {
-        this(address);
-        set(exp);
+    public Cell() {
+        set(NoValue.INSTANCE);
     }
 
     public void set(Expression exp) {
