@@ -74,6 +74,25 @@ public class AddingCellsSheetTest {
         assertEquals(firstValue, ((SomeValue) value).getValue());
     }
 
+    @Test
+    void createOperationCellWithReference() throws NotValidAddressException {
+        put("a2", firstValue);
+        put("a3", plus("a2", firstValue));
+        MaybeValue value = get("a3");
+        assertTrue(value.hasValue());
+        assertTrue(value instanceof SomeValue);
+        assertEquals(firstValue * 2, ((SomeValue) value).getValue());
+    }
+
+    @Test
+    void createOperationCellWithReferences() throws NotValidAddressException {
+        put("a3", plus("a2", "a1"));
+        put("a2", firstValue);
+        MaybeValue value = get("a3");
+        assertTrue(value.hasValue());
+        assertTrue(value instanceof SomeValue);
+        assertEquals(firstValue * 2, ((SomeValue) value).getValue());
+    }
 
     @Test
     void createReferenceAfterValueTest() throws NotValidAddressException {

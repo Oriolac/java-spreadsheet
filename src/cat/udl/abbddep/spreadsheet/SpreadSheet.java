@@ -12,6 +12,8 @@ import cat.udl.abbddep.expression.value.SomeValue;
 import cat.udl.abbddep.sheet.Sheet;
 import cat.udl.abbddep.sheet.SheetTable;
 
+import java.awt.*;
+
 public class SpreadSheet {
 
     private static int SIZE = 5;

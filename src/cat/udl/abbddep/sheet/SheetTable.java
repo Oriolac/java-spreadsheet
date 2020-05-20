@@ -63,7 +63,12 @@ public class SheetTable implements Sheet {
         Address ad = new Address(address);
         int row = ad.getRow();
         int num = ad.getColumn();
-        cells[row][num] = new Cell(expr);
+        if (cells[row][num] == null) {
+            cells[row][num] = new Cell(expr);
+        } else {
+            Cell cell = cells[row][num];
+            cell.set(expr);
+        }
     }
 
     private boolean notInRange(int num) {
