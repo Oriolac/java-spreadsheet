@@ -1,5 +1,6 @@
-package cat.udl.abbddep.expression.operation;
+package cat.udl.abbddep.expression.operation.novalue;
 
+import cat.udl.abbddep.expression.operation.Mult;
 import cat.udl.abbddep.expression.value.NoValue;
 import org.junit.jupiter.api.BeforeEach;
 

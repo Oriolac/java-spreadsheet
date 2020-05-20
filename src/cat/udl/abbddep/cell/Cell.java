@@ -29,4 +29,12 @@ public class Cell {
             this.value = exp.evaluate();
         return this.value;
     }
+
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "exp=" + exp +
+                ", value=" + value +
+                '}';
+    }
 }

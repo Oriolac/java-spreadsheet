@@ -1,8 +1,9 @@
-package cat.udl.abbddep.spreadsheet;
+package cat.udl.abbddep.sheet;
 
 import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.NoValue;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -52,5 +53,10 @@ public class NotValidAddressExceptionTest {
         assertThrows(NotValidAddressException.class, () -> mult("a1", address));
         assertThrows(NotValidAddressException.class, () -> mult(address, address));
         assertThrows(NotValidAddressException.class, () -> mult(address, 1));
+    }
+
+    @AfterEach
+    void close() {
+        clear();
     }
 }

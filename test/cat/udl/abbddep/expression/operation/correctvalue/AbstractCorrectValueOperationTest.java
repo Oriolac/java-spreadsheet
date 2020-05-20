@@ -1,5 +1,8 @@
-package cat.udl.abbddep.expression.operation;
+package cat.udl.abbddep.expression.operation.correctvalue;
 
+import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.expression.operation.Operation;
+import cat.udl.abbddep.expression.operation.OperationInt;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import org.junit.jupiter.api.Test;
@@ -8,6 +11,7 @@ import java.util.function.BinaryOperator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 
 public abstract class AbstractCorrectValueOperationTest {
 
@@ -17,10 +21,9 @@ public abstract class AbstractCorrectValueOperationTest {
     Operation operationValues2;
     Operation operationResult;
     OperationInt operationIntInner;
-    BinaryOperator<Integer> opInner = (f, s) -> operationIntInner.operate(f,s);
+    BinaryOperator<Integer> opInner = (f, s) -> operationIntInner.operate(f, s);
     OperationInt operationIntOuter;
-    BinaryOperator<Integer> opOuter = (f, s) -> operationIntOuter.operate(f,s);
-
+    BinaryOperator<Integer> opOuter = (f, s) -> operationIntOuter.operate(f, s);
 
 
     @Test
@@ -47,7 +50,8 @@ public abstract class AbstractCorrectValueOperationTest {
     void getResultTest() {
         MaybeValue mValueRes = operationResult.evaluate();
         assertTrue(mValueRes instanceof SomeValue);
-        int res = opOuter.apply(opInner.apply(values1[0],values1[1]), opInner.apply(values2[0], values2[1]));
+        int res = opOuter.apply(opInner.apply(values1[0], values1[1]), opInner.apply(values2[0], values2[1]));
         assertEquals(res, ((SomeValue) mValueRes).getValue());
     }
+
 }

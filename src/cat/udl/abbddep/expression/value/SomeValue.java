@@ -21,4 +21,10 @@ public class SomeValue extends MaybeValue {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "SomeValue{" +
+                "value=" + value +
+                '}';
+    }
 }

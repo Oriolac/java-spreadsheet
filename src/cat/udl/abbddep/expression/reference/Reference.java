@@ -21,4 +21,11 @@ public class Reference implements Expression {
     public MaybeValue evaluate() {
         return cell.evaluate();
     }
+
+    @Override
+    public String toString() {
+        return "Reference{" +
+                "cell=" + cell +
+                '}';
+    }
 }

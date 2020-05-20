@@ -25,4 +25,12 @@ public abstract class Operation implements Expression, OperationInt {
         SomeValue v2 = (SomeValue) mValue2;
         return new SomeValue(operate(v1.getValue(), v2.getValue()));
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "e1=" + e1 +
+                ", e2=" + e2 +
+                '}';
+    }
 }

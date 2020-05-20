@@ -16,4 +16,9 @@ public class NoValue extends MaybeValue {
     public MaybeValue evaluate() {
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "NoValue{}";
+    }
 }
