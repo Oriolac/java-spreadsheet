@@ -17,8 +17,6 @@ public class SheetTable implements Sheet {
                 throw new NotValidAddressException();
             row = getRow(address);
             column = getColumn(address);
-            System.out.println(row);
-            System.out.println(column);
         }
 
         public int getRow() {

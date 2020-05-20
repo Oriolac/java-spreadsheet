@@ -20,4 +20,5 @@ public class SomeValue extends MaybeValue {
     public MaybeValue evaluate() {
         return this;
     }
+
 }

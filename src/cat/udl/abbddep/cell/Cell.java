@@ -11,12 +11,12 @@ public class Cell {
     private MaybeValue value;
 
     public Cell(Expression expr) {
-        this();
-        set(exp);
+        set(expr);
+        value = NoValue.INSTANCE;
     }
 
     public Cell() {
-        set(NoValue.INSTANCE);
+        this(NoValue.INSTANCE);
     }
 
     public void set(Expression exp) {
