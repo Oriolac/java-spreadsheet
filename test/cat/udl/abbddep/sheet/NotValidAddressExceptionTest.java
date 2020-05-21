@@ -46,7 +46,7 @@ public class NotValidAddressExceptionTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"k32", "aa43", "432as", "asfg", "4", "a", "543"})
+    @ValueSource(strings = {"a10", "z1", "k32", "aa43", "432as", "asfg", "4", "a", "543"})
     void throwsInMultTest(String address) {
         assertThrows(NotValidAddressException.class, () -> mult(NoValue.INSTANCE, address));
         assertThrows(NotValidAddressException.class, () -> mult(address, "a1"));

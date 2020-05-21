@@ -30,7 +30,25 @@ public abstract class AbstractReferenceOperationTest {
     OperationInt operationIntInner;
     BinaryOperator<Integer> opInner = (f, s) -> operationIntInner.operate(f, s);
     OperationInt operationIntOuter;
+    OperationInt operationIntReference;
+    BinaryOperator<Integer> opRefer = (f, s) -> operationIntReference.operate(f, s);
     BinaryOperator<Integer> opOuter = (f, s) -> operationIntOuter.operate(f, s);
+
+    abstract void setUp() throws NotValidAddressException;
+
+    @BeforeEach
+    void abstractSetUp() throws NotValidAddressException {
+        setUp();
+        put("c1", operationResult);
+        put("a3", operationValues1);
+        put("a1", values1[0]);
+        put("a2", values1[1]);
+        put("b3", operationValues2);
+        put("b1", values2[0]);
+        put("b2", values2[1]);
+        put("d1", valueOfMixed);
+        put("d2", operationMixed);
+    }
 
 
     @ParameterizedTest
@@ -66,7 +84,7 @@ public abstract class AbstractReferenceOperationTest {
         MaybeValue mValueRes = get("d2");
         assertTrue(mValueRes instanceof SomeValue);
         int res = opInner
-                .apply(opOuter.apply(
+                .apply(opRefer.apply(
                         opInner.apply(values1[0], values1[1]), opInner.apply(values2[0], values2[1])),
                         valueOfMixed);
         assertEquals(res, ((SomeValue) mValueRes).getValue());
