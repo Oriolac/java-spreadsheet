@@ -1,4 +1,4 @@
-package cat.udl.abbddep.expression.operation.reference;
+package cat.udl.abbddep.expression.operation.reference.unique;
 
 import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.operation.Operation;
@@ -83,8 +83,8 @@ public abstract class AbstractReferenceOperationTest {
     void getMixedTest() throws NotValidAddressException {
         MaybeValue mValueRes = get("d2");
         assertTrue(mValueRes instanceof SomeValue);
-        int res = opInner
-                .apply(opRefer.apply(
+        int res = opRefer
+                .apply(opOuter.apply(
                         opInner.apply(values1[0], values1[1]), opInner.apply(values2[0], values2[1])),
                         valueOfMixed);
         assertEquals(res, ((SomeValue) mValueRes).getValue());
