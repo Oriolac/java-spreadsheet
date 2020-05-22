@@ -53,5 +53,4 @@ public abstract class AbstractCorrectValueOperationTest {
         int res = opOuter.apply(opInner.apply(values1[0], values1[1]), opInner.apply(values2[0], values2[1]));
         assertEquals(res, ((SomeValue) mValueRes).getValue());
     }
-
 }

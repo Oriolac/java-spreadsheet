@@ -8,7 +8,4 @@ public class NotValidAddressException extends Exception {
         super(message);
     }
 
-    public NotValidAddressException(Throwable cause) {
-        super(cause);
-    }
 }

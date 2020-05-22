@@ -1,4 +1,4 @@
-package cat.udl.abbddep.expression.operation.reference.unique;
+package cat.udl.abbddep.expression.operation.reference;
 
 import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.operation.Operation;

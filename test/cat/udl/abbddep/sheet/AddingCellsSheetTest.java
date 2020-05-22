@@ -108,9 +108,31 @@ public class AddingCellsSheetTest {
     }
 
     @Test
-    void createComplexSheet() throws NotValidAddressException {
-
+    void operationsInSheet() throws NotValidAddressException {
+        int[] values = new int[]{3,4,2,4};
+        String ref = "a1";
+        plusOverMult(values, ref);
+        ref ="a2";
+        multOverPlus(values, ref);
+        values = new int[]{-3,-4,-2,-4};
+        ref = "b1";
+        plusOverMult(values, ref);
+        ref ="b2";
+        multOverPlus(values, ref);
     }
+
+    private void multOverPlus(int[] values, String ref) throws NotValidAddressException {
+        put(ref, mult(plus(values[0], values[1]), plus(values[2], values[3])));
+        assertTrue(get(ref).hasValue() && get(ref) instanceof SomeValue);
+        assertEquals((values[0] + values[1]) * (values[2] + values[3]), ((SomeValue) get(ref)).getValue());
+    }
+
+    private void plusOverMult(int[] values, String ref) throws NotValidAddressException {
+        put(ref, plus(mult(values[0], values[1]), mult(values[2], values[3])));
+        assertTrue(get(ref).hasValue() && get(ref) instanceof SomeValue);
+        assertEquals(values[0] * values[1] + values[2] * values[3], ((SomeValue) get(ref)).getValue());
+    }
+
 
     @AfterEach
     void close() {
