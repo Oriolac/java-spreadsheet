@@ -69,8 +69,7 @@ public class Cell extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         if (!(o instanceof Cell))
             throw new IllegalArgumentException();
-        Cell cell = (Cell) o;
-        this.value = this.evaluate();
+        this.value = exp.evaluate();
         setChanged();
         notifyObservers();
     }

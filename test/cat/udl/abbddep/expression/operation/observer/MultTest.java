@@ -6,7 +6,7 @@ import java.util.List;
 
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 
-public class PlusTest extends ObserversTest{
+public class MultTest extends ObserversTest{
     @Override
     protected void putOperations() throws NotValidAddressException {
         put("b1", operation1);
@@ -17,12 +17,12 @@ public class PlusTest extends ObserversTest{
 
     @Override
     protected void setOperations() throws NotValidAddressException {
-        opInt1 = Integer::sum;
-        opInt2 = (a, b) -> a * b;
-        opInt3 = Integer::sum;
-        operation1 = plus("a1", "a2");
-        operation2 = mult("b1", interValue);
-        operation3 = plus("b2", "a3");
+        opInt1 = (a, b) -> a * b;
+        opInt2 = Integer::sum;
+        opInt3 = (a, b) -> a * b;
+        operation1 = mult("a1", "a2");
+        operation2 = plus("b1", interValue);
+        operation3 = mult("b2", "a3");
     }
 
     @Override

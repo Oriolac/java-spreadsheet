@@ -63,14 +63,13 @@ public class SheetTable implements Sheet {
 
     @Override
     public void putCell(String address, Expression expr) throws NotValidAddressException {
-        List<String> listAddress = new LinkedList<>();
         Address ad = new Address(address);
         int row = ad.getRow();
-        int num = ad.getColumn();
-        if (cells[row][num] == null) {
-            cells[row][num] = new Cell(expr);
+        int col = ad.getColumn();
+        if (cells[row][col] == null) {
+            cells[row][col] = new Cell(expr);
         } else {
-            Cell cell = cells[row][num];
+            Cell cell = cells[row][col];
             cell.set(expr);
         }
     }

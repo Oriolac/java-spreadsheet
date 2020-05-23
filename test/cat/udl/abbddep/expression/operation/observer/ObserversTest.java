@@ -13,12 +13,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public abstract class ObserversTest {
 
     int firstValueRef;
+    int newFirstValueRef;
     int secValueRef;
     int interValue;
     int thirdValueRef;
@@ -83,6 +83,26 @@ public abstract class ObserversTest {
         assertValue(cells, 0, opInt2.operate(opInt1.operate(firstValueRef, secValueRef), interValue));
         assertValue(cells, 1, thirdValueRef);
         assertTrue(operation3.evaluate().hasValue() && operation3.evaluate() instanceof SomeValue);
+        assertEquals(opInt3.operate(
+                opInt2.operate(
+                        interValue, opInt1
+                                .operate(firstValueRef, secValueRef)), thirdValueRef),
+                ((SomeValue) get(opRefs.get(2))).getValue());
+    }
+
+    @Test
+    void changingFirstValueTest() throws NotValidAddressException {
+        put(valuesRefs.get(0), newFirstValueRef);
+        assertEquals(opInt3.operate(
+                opInt2.operate(
+                        interValue, opInt1
+                                .operate(newFirstValueRef, secValueRef)), thirdValueRef),
+                ((SomeValue) get(opRefs.get(2))).getValue());
+    }
+
+    @Test
+    void changingThirdValueTest() throws NotValidAddressException {
+        put(valuesRefs.get(0), interValue);
         assertEquals(opInt3.operate(
                 opInt2.operate(
                         interValue, opInt1
