@@ -10,11 +10,11 @@ public abstract class MaybeValue implements Expression {
     public abstract boolean hasValue();
 
     @Override
-    public void addCellsDependency(List<Cell> cells) {
+    public void addCellsObservables(List<Cell> cells) {
     }
 
     @Override
-    public List<Cell> getCellsDependency() {
+    public List<Cell> getCellsObservables() {
         return List.of();
     }
 }

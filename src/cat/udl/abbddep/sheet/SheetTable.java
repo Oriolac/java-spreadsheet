@@ -1,11 +1,8 @@
 package cat.udl.abbddep.sheet;
 
 import cat.udl.abbddep.cell.Cell;
-import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class SheetTable implements Sheet {
     private final int size;

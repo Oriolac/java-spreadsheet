@@ -1,15 +1,9 @@
 package cat.udl.abbddep.sheet;
 
-import cat.udl.abbddep.cell.NotValidAddressException;
-import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.NoValue;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.util.function.BiFunction;
-import java.util.function.Function;
 
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;

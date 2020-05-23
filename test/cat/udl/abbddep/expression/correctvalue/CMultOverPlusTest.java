@@ -1,4 +1,4 @@
-package cat.udl.abbddep.expression.operation.correctvalue;
+package cat.udl.abbddep.expression.correctvalue;
 
 import cat.udl.abbddep.expression.operation.Mult;
 import cat.udl.abbddep.expression.operation.Plus;

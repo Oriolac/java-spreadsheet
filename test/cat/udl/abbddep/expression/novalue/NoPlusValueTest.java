@@ -1,4 +1,4 @@
-package cat.udl.abbddep.expression.operation.novalue;
+package cat.udl.abbddep.expression.novalue;
 
 import cat.udl.abbddep.expression.operation.Plus;
 import cat.udl.abbddep.expression.value.NoValue;

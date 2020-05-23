@@ -9,7 +9,7 @@ public interface Expression {
 
     MaybeValue evaluate();
 
-    void addCellsDependency(List<Cell> cells);
+    void addCellsObservables(List<Cell> cells);
 
-    List<Cell> getCellsDependency();
+    List<Cell> getCellsObservables();
 }

@@ -1,4 +1,4 @@
-package cat.udl.abbddep.cell;
+package cat.udl.abbddep.sheet;
 
 public class NotValidAddressException extends Exception {
     public NotValidAddressException() {

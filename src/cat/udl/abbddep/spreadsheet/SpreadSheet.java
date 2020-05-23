@@ -2,7 +2,7 @@ package cat.udl.abbddep.spreadsheet;
 
 
 import cat.udl.abbddep.cell.Cell;
-import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.operation.Mult;
 import cat.udl.abbddep.expression.operation.Plus;
@@ -12,12 +12,10 @@ import cat.udl.abbddep.expression.value.SomeValue;
 import cat.udl.abbddep.sheet.Sheet;
 import cat.udl.abbddep.sheet.SheetTable;
 
-import java.awt.*;
-
 public class SpreadSheet {
 
-    private static int SIZE = 5;
-    private static Sheet SHEET = new SheetTable(SIZE);
+    private static final int SIZE = 5;
+    private static final Sheet SHEET = new SheetTable(SIZE);
 
     public static Expression plus(Expression expr1, Expression expr2) {
         return new Plus(expr1, expr2);
@@ -46,6 +44,7 @@ public class SpreadSheet {
     public static Expression plus(int value1, int value2) {
         return new Plus(new SomeValue(value1), new SomeValue(value2));
     }
+
     public static Expression mult(Expression expr1, Expression expr2) {
         return new Mult(expr1, expr2);
     }
@@ -73,6 +72,7 @@ public class SpreadSheet {
     public static Expression mult(int value1, int value2) {
         return new Mult(new SomeValue(value1), new SomeValue(value2));
     }
+
     public static MaybeValue get(String address) throws NotValidAddressException {
         return SHEET.getCell(address).evaluate();
     }

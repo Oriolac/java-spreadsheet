@@ -1,6 +1,6 @@
-package cat.udl.abbddep.expression.operation.reference;
+package cat.udl.abbddep.expression.reference;
 
-import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.operation.Operation;
 import cat.udl.abbddep.expression.operation.OperationInt;
 import cat.udl.abbddep.expression.value.MaybeValue;

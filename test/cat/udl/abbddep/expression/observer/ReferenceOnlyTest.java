@@ -1,10 +1,9 @@
-package cat.udl.abbddep.expression.operation.observer;
+package cat.udl.abbddep.expression.observer;
 
-import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 

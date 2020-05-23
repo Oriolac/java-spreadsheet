@@ -5,7 +5,9 @@ import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 
-import java.util.*;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 public class Cell extends Observable implements Observer {
 
@@ -37,15 +39,15 @@ public class Cell extends Observable implements Observer {
     }
 
     private void removePreviousObservables(Expression lastExp) {
-        List<Cell> observables = lastExp.getCellsDependency();
+        List<Cell> observables = lastExp.getCellsObservables();
         for (Cell cell : observables) {
             cell.deleteObserver(this);
         }
     }
 
     private void addNewObservables() {
-        List<Cell> observables = exp.getCellsDependency();
-        for (Cell cell: observables) {
+        List<Cell> observables = exp.getCellsObservables();
+        for (Cell cell : observables) {
             cell.addObserver(this);
         }
     }

@@ -1,12 +1,10 @@
 package cat.udl.abbddep.sheet;
 
-import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestTemplate;
 
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;

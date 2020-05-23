@@ -31,15 +31,15 @@ public abstract class Operation implements Expression, OperationInt {
     }
 
     @Override
-    public void addCellsDependency(List<Cell> cells) {
-        e1.addCellsDependency(cells);
-        e2.addCellsDependency(cells);
+    public void addCellsObservables(List<Cell> cells) {
+        e1.addCellsObservables(cells);
+        e2.addCellsObservables(cells);
     }
 
     @Override
-    public List<Cell> getCellsDependency() {
+    public List<Cell> getCellsObservables() {
         List<Cell> cells = new LinkedList<>();
-        this.addCellsDependency(cells);
+        this.addCellsObservables(cells);
         return cells;
     }
 

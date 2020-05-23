@@ -1,6 +1,6 @@
-package cat.udl.abbddep.expression.operation.observer;
+package cat.udl.abbddep.expression.observer;
 
-import cat.udl.abbddep.cell.NotValidAddressException;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import org.junit.jupiter.api.AfterEach;
@@ -36,7 +36,7 @@ public class AfterReferenceTest {
         put("a2", "a1");
         put("a1", plus("b1", "b2"));
 
-        assertEquals(2, plus("b1", "b2").getCellsDependency().size());
+        assertEquals(2, plus("b1", "b2").getCellsObservables().size());
         put("b1", 4);
         put("b2", 1);
         MaybeValue mValue = get("a2");
