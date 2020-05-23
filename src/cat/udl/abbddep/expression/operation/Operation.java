@@ -1,9 +1,12 @@
 package cat.udl.abbddep.expression.operation;
 
+import cat.udl.abbddep.cell.Cell;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 import cat.udl.abbddep.expression.value.SomeValue;
+
+import java.util.List;
 
 public abstract class Operation implements Expression, OperationInt {
 
@@ -24,6 +27,12 @@ public abstract class Operation implements Expression, OperationInt {
         SomeValue v1 = (SomeValue) mValue1;
         SomeValue v2 = (SomeValue) mValue2;
         return new SomeValue(operate(v1.getValue(), v2.getValue()));
+    }
+
+    @Override
+    public void getCellsDependency(List<Cell> cells) {
+        e1.getCellsDependency(cells);
+        e2.getCellsDependency(cells);
     }
 
     @Override

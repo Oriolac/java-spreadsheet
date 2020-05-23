@@ -10,4 +10,5 @@ public interface Sheet {
 
     public Cell getCell(String ref) throws NotValidAddressException;
 
+    void clear();
 }

@@ -6,6 +6,8 @@ import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 
+import java.util.List;
+
 public class Reference implements Expression {
 
 
@@ -16,10 +18,14 @@ public class Reference implements Expression {
     }
 
 
-
     @Override
     public MaybeValue evaluate() {
         return cell.evaluate();
+    }
+
+    @Override
+    public void getCellsDependency(List<Cell> cells) {
+        cells.add(cell);
     }
 
     @Override

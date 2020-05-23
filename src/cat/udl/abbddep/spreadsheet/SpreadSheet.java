@@ -90,7 +90,7 @@ public class SpreadSheet {
     }
 
     public static void clear() {
-        SHEET = new SheetTable(SIZE);
+        SHEET.clear();
     }
 
 

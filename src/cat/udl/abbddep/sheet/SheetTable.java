@@ -6,7 +6,7 @@ import cat.udl.abbddep.expression.Expression;
 
 public class SheetTable implements Sheet {
     private final int size;
-    private final Cell[][] cells;
+    private Cell[][] cells;
 
     private class Address {
         private final int row;
@@ -84,6 +84,11 @@ public class SheetTable implements Sheet {
         if (cells[row][col] == null)
             cells[row][col] = new Cell();
         return cells[row][col];
+    }
+
+    @Override
+    public void clear() {
+        this.cells = new Cell[size][size];
     }
 
 }
