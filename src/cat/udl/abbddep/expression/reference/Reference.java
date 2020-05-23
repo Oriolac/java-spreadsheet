@@ -6,6 +6,7 @@ import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Reference implements Expression {
@@ -24,8 +25,13 @@ public class Reference implements Expression {
     }
 
     @Override
-    public void getCellsDependency(List<Cell> cells) {
+    public void addCellsDependency(List<Cell> cells) {
         cells.add(cell);
+    }
+
+    @Override
+    public List<Cell> getCellsDependency() {
+        return new LinkedList<>(List.of(cell));
     }
 
     @Override

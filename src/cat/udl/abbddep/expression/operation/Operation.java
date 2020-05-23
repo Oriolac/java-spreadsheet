@@ -6,6 +6,7 @@ import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Operation implements Expression, OperationInt {
@@ -30,9 +31,16 @@ public abstract class Operation implements Expression, OperationInt {
     }
 
     @Override
-    public void getCellsDependency(List<Cell> cells) {
-        e1.getCellsDependency(cells);
-        e2.getCellsDependency(cells);
+    public void addCellsDependency(List<Cell> cells) {
+        e1.addCellsDependency(cells);
+        e2.addCellsDependency(cells);
+    }
+
+    @Override
+    public List<Cell> getCellsDependency() {
+        List<Cell> cells = new LinkedList<>();
+        this.addCellsDependency(cells);
+        return cells;
     }
 
     @Override

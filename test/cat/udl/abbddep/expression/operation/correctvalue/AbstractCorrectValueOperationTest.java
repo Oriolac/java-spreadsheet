@@ -5,6 +5,7 @@ import cat.udl.abbddep.expression.operation.Operation;
 import cat.udl.abbddep.expression.operation.OperationInt;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.BinaryOperator;
@@ -52,5 +53,10 @@ public abstract class AbstractCorrectValueOperationTest {
         assertTrue(mValueRes instanceof SomeValue);
         int res = opOuter.apply(opInner.apply(values1[0], values1[1]), opInner.apply(values2[0], values2[1]));
         assertEquals(res, ((SomeValue) mValueRes).getValue());
+    }
+
+    @AfterEach
+    void tearDown() {
+        clear();
     }
 }

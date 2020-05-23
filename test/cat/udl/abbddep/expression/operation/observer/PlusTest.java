@@ -24,7 +24,7 @@ public class PlusTest extends ObserversTest{
         opInt3 = Integer::sum;
         operation1 = plus("a1", "a2");
         operation2 = mult("b1", interValue);
-        operation3 = plus("a3", "b2");
+        operation3 = plus("b2", "a3");
     }
 
     @Override

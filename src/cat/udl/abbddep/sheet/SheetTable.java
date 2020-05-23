@@ -4,6 +4,9 @@ import cat.udl.abbddep.cell.Cell;
 import cat.udl.abbddep.cell.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class SheetTable implements Sheet {
     private final int size;
     private Cell[][] cells;
@@ -60,6 +63,7 @@ public class SheetTable implements Sheet {
 
     @Override
     public void putCell(String address, Expression expr) throws NotValidAddressException {
+        List<String> listAddress = new LinkedList<>();
         Address ad = new Address(address);
         int row = ad.getRow();
         int num = ad.getColumn();

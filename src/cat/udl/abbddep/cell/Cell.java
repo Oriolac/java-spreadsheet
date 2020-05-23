@@ -4,7 +4,6 @@ package cat.udl.abbddep.cell;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
-import cat.udl.abbddep.expression.value.SomeValue;
 
 import java.util.*;
 
@@ -15,7 +14,7 @@ public class Cell extends Observable implements Observer {
 
     public Cell(Expression expr) {
         set(expr);
-        value = NoValue.INSTANCE;
+        value = expr.evaluate();
     }
 
     public Cell() {
@@ -38,16 +37,14 @@ public class Cell extends Observable implements Observer {
     }
 
     private void removePreviousObservables(Expression lastExp) {
-        List<Cell> observables = new LinkedList<>();
-        lastExp.getCellsDependency(observables);
+        List<Cell> observables = lastExp.getCellsDependency();
         for (Cell cell : observables) {
             cell.deleteObserver(this);
         }
     }
 
     private void addNewObservables() {
-        List<Cell> observables = new LinkedList<>();
-        exp.getCellsDependency(observables);
+        List<Cell> observables = exp.getCellsDependency();
         for (Cell cell: observables) {
             cell.addObserver(this);
         }
@@ -73,7 +70,7 @@ public class Cell extends Observable implements Observer {
         if (!(o instanceof Cell))
             throw new IllegalArgumentException();
         Cell cell = (Cell) o;
-        this.value = cell.evaluate();
+        this.value = this.evaluate();
         setChanged();
         notifyObservers();
     }
