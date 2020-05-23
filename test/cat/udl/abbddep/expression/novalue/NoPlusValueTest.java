@@ -6,8 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class NoPlusValueTest extends AbstractNoValueTest {
 
-    @BeforeEach
-    void setUp() {
+    @Override
+    protected void setOperations() {
         emptyOperation = new Plus(NoValue.INSTANCE, NoValue.INSTANCE);
         filledOperation = new Plus(emptyOperation, emptyOperation);
     }

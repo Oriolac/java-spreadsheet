@@ -5,6 +5,7 @@ import cat.udl.abbddep.expression.operation.OperationInt;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.BinaryOperator;
@@ -25,6 +26,16 @@ public abstract class AbstractCorrectValueOperationTest {
     OperationInt operationIntOuter;
     BinaryOperator<Integer> opOuter = (f, s) -> operationIntOuter.operate(f, s);
 
+
+    @BeforeEach
+    void setUp() {
+        setValues();
+        setOperations();
+    }
+
+    protected abstract void setOperations();
+
+    protected abstract void setValues();
 
     @Test
     void instancesOfSomeValueTest() {

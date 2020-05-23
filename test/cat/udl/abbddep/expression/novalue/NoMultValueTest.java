@@ -6,8 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 
 public class NoMultValueTest extends AbstractNoValueTest {
 
-    @BeforeEach
-    void setUp() {
+
+    @Override
+    protected void setOperations() {
         emptyOperation = new Mult(NoValue.INSTANCE, NoValue.INSTANCE);
         filledOperation = new Mult(emptyOperation, emptyOperation);
     }
