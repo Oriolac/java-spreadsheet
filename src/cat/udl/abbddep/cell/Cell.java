@@ -25,6 +25,7 @@ public class Cell extends Observable implements Observer {
     public void set(Expression newExp) {
         Expression lastExp = this.exp;
         this.exp = newExp;
+        this.value = exp.evaluate();
         setChanged();
         notifyObservers();
         changeObservables(lastExp);
@@ -77,7 +78,4 @@ public class Cell extends Observable implements Observer {
         notifyObservers();
     }
 
-    public Expression getExp() {
-        return exp;
-    }
 }
