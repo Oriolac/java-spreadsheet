@@ -29,4 +29,5 @@ public class ObservablesVisitor extends TemplateExpressionVisitor {
     public List<Cell> getObservables() {
         return Collections.unmodifiableList(observables);
     }
+
 }

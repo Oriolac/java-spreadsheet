@@ -27,10 +27,14 @@ public class Cell extends Observable implements Observer {
     public void set(Expression newExp) {
         Expression lastExp = this.exp;
         this.exp = newExp;
+        setValue();
+        changeObservables(lastExp);
+    }
+
+    private void setValue() {
         this.value = exp.evaluate();
         setChanged();
         notifyObservers();
-        changeObservables(lastExp);
     }
 
     private void changeObservables(Expression lastExp) {
@@ -59,8 +63,6 @@ public class Cell extends Observable implements Observer {
 
 
     public MaybeValue evaluate() {
-        if (!value.hasValue())
-            this.value = exp.evaluate();
         return this.value;
     }
 
@@ -76,9 +78,7 @@ public class Cell extends Observable implements Observer {
     public void update(Observable o, Object arg) {
         if (!(o instanceof Cell))
             throw new IllegalArgumentException();
-        this.value = exp.evaluate();
-        setChanged();
-        notifyObservers();
+        setValue();
     }
 
 }

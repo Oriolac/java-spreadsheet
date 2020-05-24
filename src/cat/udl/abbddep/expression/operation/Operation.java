@@ -1,14 +1,10 @@
 package cat.udl.abbddep.expression.operation;
 
-import cat.udl.abbddep.cell.Cell;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 import cat.udl.abbddep.expression.value.SomeValue;
 import cat.udl.abbddep.expression.visitor.ExpressionVisitor;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public abstract class Operation implements Expression, OperationInt {
 

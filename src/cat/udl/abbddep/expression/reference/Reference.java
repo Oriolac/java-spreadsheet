@@ -2,13 +2,10 @@ package cat.udl.abbddep.expression.reference;
 
 
 import cat.udl.abbddep.cell.Cell;
-import cat.udl.abbddep.expression.visitor.ExpressionVisitor;
-import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
-
-import java.util.LinkedList;
-import java.util.List;
+import cat.udl.abbddep.expression.visitor.ExpressionVisitor;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 
 public class Reference implements Expression {
 

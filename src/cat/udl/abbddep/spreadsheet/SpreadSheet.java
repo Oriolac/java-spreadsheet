@@ -2,13 +2,13 @@ package cat.udl.abbddep.spreadsheet;
 
 
 import cat.udl.abbddep.cell.Cell;
-import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.operation.Mult;
 import cat.udl.abbddep.expression.operation.Plus;
 import cat.udl.abbddep.expression.reference.Reference;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
+import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.sheet.Sheet;
 import cat.udl.abbddep.sheet.SheetTable;
 
