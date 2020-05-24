@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static cat.udl.abbddep.expression.observer.FacadeVisitor.getCellsObservables;
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -46,9 +47,9 @@ public abstract class ComplexOperationTest {
 
     @Test
     void getSizeObservables() throws NotValidAddressException {
-        List<Cell> cells = operation.getCellsObservables();
+        List<Cell> cells = getCellsObservables(operation);
         assertEquals(LENGTH, cells.size());
-        assertEquals(0, get(complexRef).getCellsObservables().size());
+        assertEquals(0, getCellsObservables(get(complexRef)).size());
     }
 
     @AfterEach

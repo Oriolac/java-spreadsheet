@@ -2,6 +2,7 @@ package cat.udl.abbddep.expression.reference;
 
 
 import cat.udl.abbddep.cell.Cell;
+import cat.udl.abbddep.expression.visitor.ExpressionVisitor;
 import cat.udl.abbddep.sheet.NotValidAddressException;
 import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
@@ -25,13 +26,12 @@ public class Reference implements Expression {
     }
 
     @Override
-    public void addCellsObservables(List<Cell> cells) {
-        cells.add(cell);
+    public void accept(ExpressionVisitor v) {
+        v.visit(this);
     }
 
-    @Override
-    public List<Cell> getCellsObservables() {
-        return new LinkedList<>(List.of(cell));
+    public Cell getCell() {
+        return cell;
     }
 
     @Override

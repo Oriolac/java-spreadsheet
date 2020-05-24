@@ -5,6 +5,7 @@ import cat.udl.abbddep.expression.Expression;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.NoValue;
 import cat.udl.abbddep.expression.value.SomeValue;
+import cat.udl.abbddep.expression.visitor.ExpressionVisitor;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,17 +31,18 @@ public abstract class Operation implements Expression, OperationInt {
         return new SomeValue(operate(v1.getValue(), v2.getValue()));
     }
 
-    @Override
-    public void addCellsObservables(List<Cell> cells) {
-        e1.addCellsObservables(cells);
-        e2.addCellsObservables(cells);
+
+    public Expression getFirstExpression() {
+        return e1;
+    }
+
+    public Expression getSecondExpression() {
+        return e2;
     }
 
     @Override
-    public List<Cell> getCellsObservables() {
-        List<Cell> cells = new LinkedList<>();
-        this.addCellsObservables(cells);
-        return cells;
+    public void accept(ExpressionVisitor v) {
+        v.visit(this);
     }
 
     @Override
@@ -50,4 +52,5 @@ public abstract class Operation implements Expression, OperationInt {
                 ", e2=" + e2 +
                 '}';
     }
+
 }

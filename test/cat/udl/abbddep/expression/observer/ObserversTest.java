@@ -2,9 +2,11 @@ package cat.udl.abbddep.expression.observer;
 
 import cat.udl.abbddep.cell.Cell;
 import cat.udl.abbddep.expression.Expression;
+import cat.udl.abbddep.expression.operation.Operation;
 import cat.udl.abbddep.expression.operation.OperationInt;
 import cat.udl.abbddep.expression.value.MaybeValue;
 import cat.udl.abbddep.expression.value.SomeValue;
+import cat.udl.abbddep.expression.visitor.ObservablesVisitor;
 import cat.udl.abbddep.sheet.NotValidAddressException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static cat.udl.abbddep.expression.observer.FacadeVisitor.getCellsObservables;
 import static cat.udl.abbddep.spreadsheet.SpreadSheet.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,9 +56,10 @@ public abstract class ObserversTest {
 
     protected abstract void setValues();
 
+
     @Test
     void checkOperation1Cells() throws NotValidAddressException {
-        List<Cell> cells = operation1.getCellsObservables();
+        List<Cell> cells = getCellsObservables(operation1);
         assertEquals(2, cells.size());
         assertValue(cells, 0, firstValueRef);
         assertValue(cells, 1, secValueRef);
@@ -63,9 +67,10 @@ public abstract class ObserversTest {
         assertEquals(opInt1.operate(firstValueRef, secValueRef), ((SomeValue) get(opRefs.get(0))).getValue());
     }
 
+
     @Test
     void checkOperation2Cells() throws NotValidAddressException {
-        List<Cell> cells = operation2.getCellsObservables();
+        List<Cell> cells = getCellsObservables(operation2);
         assertEquals(1, cells.size());
         assertValue(cells, 0, opInt1.operate(firstValueRef, secValueRef));
         assertTrue(operation2.evaluate().hasValue() && operation2.evaluate() instanceof SomeValue);
@@ -75,7 +80,7 @@ public abstract class ObserversTest {
 
     @Test
     void checkOperation3Cells() throws NotValidAddressException {
-        List<Cell> cells = operation3.getCellsObservables();
+        List<Cell> cells = getCellsObservables(operation3);
         assertEquals(2, cells.size());
         assertValue(cells, 0, opInt2.operate(opInt1.operate(firstValueRef, secValueRef), interValue));
         assertValue(cells, 1, thirdValueRef);
@@ -114,9 +119,9 @@ public abstract class ObserversTest {
     @Test
     void removingDependenciesInOperation1() throws NotValidAddressException {
         put(opRefs.get(0), 10);
-        List<Cell> cells = operation2.getCellsObservables();
+        List<Cell> cells = getCellsObservables(operation2);
         assertEquals(1, cells.size());
-        cells = operation3.getCellsObservables();
+        cells = getCellsObservables(operation3);
         assertEquals(2, cells.size());
         assertTrue(get(opRefs.get(2)).hasValue() && get(opRefs.get(2)) instanceof SomeValue);
         assertEquals(opInt3.operate(opInt2.operate(10, interValue), thirdValueRef), ((SomeValue) get(opRefs.get(2))).getValue());
